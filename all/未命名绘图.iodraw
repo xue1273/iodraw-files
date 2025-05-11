@@ -1,0 +1,18 @@
+<mxfile host="www.iodraw.com" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0" version="24.7.17">
+  <diagram name="第 1 页" id="-BzWF3r-XOaMOHEsw47p">
+    <mxGraphModel dx="1042" dy="539" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="开始&#xa;  │&#xa;  ▼&#xa;命令行参数解析 → 初始化模型配置 &amp; 设备设置&#xa;  │&#xa;  ▼&#xa;构建 MiniMind-VLM 模型 + 冻结非 vision_proj 参数&#xa;  │&#xa;  ▼&#xa;加载数据集 VLMDataset + 构建 DataLoader&#xa;  │&#xa;  ▼&#xa;初始化优化器 (AdamW) 和 混合精度管理器 (GradScaler)&#xa;  │&#xa;  ▼&#xa;[分布式训练] 启用 DDP（DistributedDataParallel）&#xa;  │&#xa;  ▼&#xa;进入训练主循环（按 Epoch 迭代）&#xa;  │   ├── 前向传播：model(X, pixel_values=pixel_values)&#xa;  │   ├── 损失计算：&#xa;  │   │       - 使用交叉熵损失函数（CrossEntropyLoss）&#xa;  │   │       - 应用 loss_mask 对填充部分进行屏蔽&#xa;  │   │       - 加入辅助损失（如 MoE 相关）&#xa;  │   │       - 支持梯度累积（loss /= accumulation_steps）&#xa;  │   ├── 反向传播：scaler.scale(loss).backward()&#xa;  │   ├── 梯度裁剪（clip_grad_norm_）&#xa;  │   ├── 优化器更新：scaler.step(optimizer)&#xa;  │   ├── 清空梯度：optimizer.zero_grad()&#xa;  │   ├── 日志记录与学习率更新（余弦退火）&#xa;  │   └── 定期保存模型权重（仅主进程）&#xa;  │&#xa;  ▼&#xa;结束训练" link="开始&#xa;  │&#xa;  ▼&#xa;命令行参数解析 → 初始化模型配置 &amp; 设备设置&#xa;  │&#xa;  ▼&#xa;构建 MiniMind-VLM 模型 + 冻结非 vision_proj 参数&#xa;  │&#xa;  ▼&#xa;加载数据集 VLMDataset + 构建 DataLoader&#xa;  │&#xa;  ▼&#xa;初始化优化器 (AdamW) 和 混合精度管理器 (GradScaler)&#xa;  │&#xa;  ▼&#xa;[分布式训练] 启用 DDP（DistributedDataParallel）&#xa;  │&#xa;  ▼&#xa;进入训练主循环（按 Epoch 迭代）&#xa;  │   ├── 前向传播：model(X, pixel_values=pixel_values)&#xa;  │   ├── 损失计算：&#xa;  │   │       - 使用交叉熵损失函数（CrossEntropyLoss）&#xa;  │   │       - 应用 loss_mask 对填充部分进行屏蔽&#xa;  │   │       - 加入辅助损失（如 MoE 相关）&#xa;  │   │       - 支持梯度累积（loss /= accumulation_steps）&#xa;  │   ├── 反向传播：scaler.scale(loss).backward()&#xa;  │   ├── 梯度裁剪（clip_grad_norm_）&#xa;  │   ├── 优化器更新：scaler.step(optimizer)&#xa;  │   ├── 清空梯度：optimizer.zero_grad()&#xa;  │   ├── 日志记录与学习率更新（余弦退火）&#xa;  │   └── 定期保存模型权重（仅主进程）&#xa;  │&#xa;  ▼&#xa;结束训练" id="e85yofXZDJrolX0XG5iv-1">
+          <mxCell style="text;whiteSpace=wrap;" vertex="1" parent="1">
+            <mxGeometry x="313.79998779296875" y="155.4000244140625" width="335" height="512" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="e85yofXZDJrolX0XG5iv-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="352" y="358" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
